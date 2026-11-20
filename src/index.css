@@ -1,0 +1,326 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+}
+
+/* Menú mobile */
+#mobile-menu.active {
+    display: block;
+}
+
+#mobile-menu.active #mobile-menu-panel {
+    transform: translateX(0);
+}
+
+/* Padding bottom para mobile (espacio para el menú inferior) */
+@media (max-width: 768px) {
+    body {
+        padding-bottom: 5rem;
+    }
+}
+
+/* Animación para el ítem activo del menú inferior */
+.active-nav-item {
+    color: #2c5e6d !important;
+}
+
+/* Animaciones al hacer scroll */
+.animate-on-scroll {
+    opacity: 0;
+}
+
+.animate-on-scroll.animated {
+    opacity: 1;
+}
+
+/* Estas versiones de las animaciones reemplazan a las de animate.css (se cargan después) */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ---------- Reseñas ---------- */
+.reviews {
+    padding: 4rem 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #f8f9fa;
+}
+
+.google-rating-banner {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    background: linear-gradient(135deg, #2c5e6d 0%, #1e4450 100%);
+    padding: 2rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 40px rgba(44, 94, 109, 0.2);
+    text-align: center;
+}
+
+.rating-summary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.rating-score {
+    font-size: 4rem;
+    font-weight: 800;
+    color: white;
+    line-height: 1;
+}
+
+.rating-details {
+    text-align: left;
+    flex: 1;
+}
+
+.stars {
+    font-size: 2rem;
+    color: #fbbf24;
+    margin-bottom: 0.5rem;
+}
+
+.star {
+    font-size: 2rem;
+    color: #ddd;
+}
+
+.star.filled {
+    color: #fbbf24;
+}
+
+.rating-text {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.google-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.3s;
+}
+
+.google-link:hover {
+    opacity: 0.8;
+}
+
+.google-logo {
+    height: 20px;
+}
+
+.reviews-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.review-card {
+    background: white;
+    border: 1px solid #eaeff0;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+}
+
+.review-card:not(.hidden-review) {
+    max-height: 500px;
+    opacity: 1;
+}
+
+/* Reseñas extra: ocultas hasta pulsar "Ver más reseñas" */
+.hidden-review {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.hidden-review.show {
+    display: block;
+}
+
+.review-card.hidden-review.show {
+    max-height: 500px;
+    opacity: 1;
+}
+
+.review-card:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px);
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.reviewer-info {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.reviewer-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2c5e6d, #1e4450);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.reviewer-info h4 {
+    font-weight: 700;
+    color: #111618;
+    margin-bottom: 0.3rem;
+    font-size: 0.95rem;
+}
+
+.review-stars {
+    color: #fbbf24;
+    font-size: 1rem;
+}
+
+.review-date {
+    color: #4f6d76;
+    font-size: 0.85rem;
+}
+
+.review-text {
+    color: #4f6d76;
+    line-height: 1.6;
+    font-style: italic;
+    font-size: 0.95rem;
+}
+
+.show-more-container {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.show-more-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 2rem;
+    background: linear-gradient(135deg, #2c5e6d 0%, #1e4450 100%);
+    color: white;
+    border: none;
+    border-radius: 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.show-more-btn:hover {
+    background: #2c3e50;
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(44, 94, 109, 0.3);
+}
+
+#btnIcon {
+    font-size: 0.8rem;
+    transition: transform 0.3s;
+}
+
+.cta-review {
+    max-width: 600px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, #f6f7f7 0%, #e5e7e8 100%);
+    border-radius: 1rem;
+    padding: 2rem;
+    text-align: center;
+}
+
+.cta-review p {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #111618;
+    margin-bottom: 1rem;
+}
+
+.cta-button {
+    display: inline-block;
+    background: linear-gradient(135deg, #2c5e6d 0%, #1e4450 100%);
+    color: white;
+    padding: 0.875rem 2rem;
+    border-radius: 2rem;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s;
+}
+
+.cta-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(44, 94, 109, 0.3);
+}
+
+/* Respeta la preferencia del sistema "reducir movimiento" */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+        animation-duration: 0.01ms !important;
+        animation-delay: 0s !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
